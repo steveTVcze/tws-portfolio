@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <svg width="70" height="70" role="img" id="home-logo" aria-labelledby="logo-title" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <title id="logo-title">Portofolio logo</title><path d="M1.429 0.044 C 0.803 0.178,0.308 0.620,0.089 1.240 L 0.013 1.453 0.006 3.200 C -0.003 5.168,-0.001 5.200,0.187 5.587 C 0.305 5.831,0.458 6.025,0.662 6.191 C 0.739 6.255,1.657 6.782,2.702 7.362 L 4.600 8.418 4.615 10.722 C 4.629 12.791,4.635 13.044,4.676 13.200 C 4.778 13.582,5.019 13.955,5.307 14.177 C 5.452 14.288,7.892 15.658,8.254 15.831 C 8.518 15.957,8.784 16.009,9.080 15.991 C 9.537 15.965,9.946 15.783,10.265 15.465 C 10.473 15.257,10.615 15.025,10.714 14.733 L 10.786 14.520 10.795 12.747 L 10.804 10.973 12.686 9.827 C 13.721 9.196,14.635 8.629,14.717 8.566 C 14.919 8.412,15.101 8.189,15.226 7.941 C 15.415 7.566,15.417 7.543,15.408 5.787 L 15.400 4.227 15.325 4.014 C 15.087 3.342,14.528 2.889,13.825 2.800 C 13.582 2.769,13.263 2.805,13.031 2.889 C 12.940 2.922,12.234 3.300,11.463 3.728 C 10.692 4.156,10.049 4.507,10.034 4.507 C 10.020 4.507,8.371 3.552,6.370 2.384 C 4.370 1.217,2.664 0.227,2.580 0.184 C 2.251 0.016,1.808 -0.037,1.429 0.044 M3.240 2.344 L 4.600 3.139 4.607 4.893 C 4.613 6.524,4.611 6.645,4.569 6.629 C 4.434 6.577,1.632 5.002,1.593 4.956 C 1.550 4.905,1.547 4.786,1.547 3.302 L 1.547 1.703 1.625 1.625 C 1.680 1.569,1.728 1.547,1.791 1.548 C 1.858 1.549,2.213 1.744,3.240 2.344 M7.769 4.986 L 9.253 5.853 9.253 7.540 C 9.253 8.468,9.249 9.227,9.244 9.227 C 9.239 9.227,8.546 8.844,7.704 8.377 L 6.173 7.527 6.166 5.789 L 6.160 4.051 6.223 4.086 C 6.257 4.105,6.953 4.510,7.769 4.986 M13.734 4.360 C 13.777 4.382,13.824 4.424,13.839 4.452 C 13.857 4.485,13.867 4.985,13.867 5.875 C 13.867 7.144,13.863 7.252,13.820 7.302 C 13.794 7.332,13.149 7.737,12.387 8.202 C 11.624 8.667,10.955 9.076,10.900 9.111 L 10.800 9.174 10.801 7.514 L 10.802 5.853 12.005 5.187 C 13.777 4.205,13.598 4.290,13.734 4.360 M7.726 10.153 L 9.252 11.000 9.253 12.621 C 9.253 14.033,9.248 14.253,9.212 14.322 C 9.170 14.403,9.082 14.453,8.981 14.453 C 8.921 14.453,6.349 13.036,6.241 12.942 L 6.173 12.885 6.166 11.096 C 6.162 10.112,6.168 9.307,6.179 9.307 C 6.190 9.307,6.886 9.688,7.726 10.153 " stroke="none"  fill-rule="evenodd"></path></svg>
+            <ul id="lstOfHrefs">
+                <li> <a href="#about">About me</a> </li>
+                <li> <a href="#skills">Skills</a></li>
+                <li> <a href="#history">History</a></li>
+                <li> <a href="#projects">Projects</a></li>
+                <li> <a href="#contact">Contact</a></li>
+                <li>
+                    <button id="theme-btn" aria-label="Přepnout tmavý/světlý režim">
+                        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="animatedSections">
+            <div class="container">
+            <img src="fotky/malej_ja-large.jpg" id="landingImg" alt="Photo of me" srcset="fotky/malej_ja-small.jpg 400w, fotky/malej_ja-large.jpg 800w" sizes="(max-width: 480px) 300px, 400px">
+                <div class="landing-text">
+                    <h1>Hello I'm Štěpán</h1>
+                    <p class="subtitle">Student & Junior Web Developer</p>
+                    <div class="scroll-indicator">
+                        <svg width="40" height="80" viewBox="0 0 40 60" class="svg-arrow">
+                            <rect x="5" y="5" width="30" height="60" rx="15" fill="none" stroke="currentColor" stroke-width="4" />
+                            <path d="M12 20 L20 28 L28 20" fill="none" stroke="currentColor"  stroke-width="2" stroke-linecap="round" class="arrow-1" />
+                            <path d="M12 30 L20 38 L28 30"  fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow-2" />
+                            <path d="M12 40 L20 48 L28 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow-3" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="animatedSections">
+            <div class="container">
+                <h2>Skills & Certifications</h2>
+                <div id="skills-wraper">
+                    <img src="fotky/malej_ja_fotbal.jpg" id="footballImg" alt="Photo of me playing football" >
+                    <div id="technicalSkills">
+                        <h3>Technical skills</h3>
+                        <ul class="skills-list">
+                            <li><strong>Programming languages</strong>
+                                <ul>
+                                    <li>C#, Java, C++</li>
+                                    <li>JavaScript & TypeScript</li>
+                                </ul>
+                            </li>
+                            <li><strong>Frameworks</strong>
+                                <ul>
+
+                                    <li>ASP.NET (MVC, Web API, Blazor)</li>
+                                    <li>React, Next.js, Vue (Frontend Development)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Virtualization</strong>
+                                <ul>
+
+                                    <li>Docker</li>
+                                </ul>
+                            </li>
+                            <li><strong>Networking</strong>
+                                <ul>
+                                    
+                                    <li>Cisco CCNA1, CCNA3</li>
+                                </ul>
+                            </li>
+                            <li><strong>Methologies</strong>
+                                <ul>
+                                    <li>MVC architecture and REST API</li>
+                                    <li>Git, GitHub, Gitlab</li>
+                                </ul>
+                            </li>
+                            <li><strong>Web design</strong>
+                                <ul>
+
+                                    <li>Adobe XD</li>
+                                    <li>Figma</li>
+                                </ul>
+                            </li>
+                            <li><strong>Game development</strong>
+                                <ul>
+                                    <li>Unity</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="certsLang">
+                        <h3>Certs & Languages</h3>
+                        <ol class="certs-list">
+                            <li><strong>Microsoft Azure Certifications</strong>
+                                <ol>
+                                    <li>AZ-104: Azure Administrator Associate</li>
+                                    <li>DP-300: Azure Database Administrator</li>
+                                </ol>
+                            </li>
+                            <li><strong>Language certs</strong>
+                                <ol>
+                                    <li>JLPT N2 (Japanese)</li>
+                                    <li>Cambridge English C1 (English)</li>
+                                </ol>
+                            </li>
+
+                            <li><strong>ECDL Advanced</strong>
+                                <ol>
+                                    <li>AM4: Advanced spreadsheets</li>
+                                    <li>AM6: Presentations</li>
+                                </ol>
+                            </li>
+
+
+                            <li><strong>ECDL Core</strong>
+                                <ol>
+                                    <li>M2: Computer Essentials (Managing files and operating systems)</li>
+                                    <li>M3: Word Processing (Creating and formatting documents)</li>
+                                    <li>M4: Spreadsheets (Calculations and data management in Excel)</li>
+                                    <li>M5: Using Databases (Understanding and managing data structures)</li>
+                                    <li>M6: Presentation (Design and delivery of professional slideshows)</li>
+                                    <li>M7: Online Essentials (Web browsing and digital communication)</li>
+                                    <li>M10: IT Security (Protecting data and devices from digital threats)</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="tech-icons">
+                <img src="fotky/technologie/react.png" alt="React">
+                <img src="fotky/technologie/next.svg" alt="Next.js">
+                <img src="fotky/technologie/azure.png" alt="Azure">
+                <img src="fotky/technologie/docker.png" alt="Docker">
+                <img src="fotky/technologie/csharp.png" alt="Csharp">
+            </div>
+        </section>
+
+        <section id="history" class="animatedSections">
+            <div class="container">
+                <h2>My history</h2>
+                <h3>Educational history</h3>
+                <table>
+                    <caption>Overview of my educational history</caption>
+                    <thead>
+                        <tr>
+                            <th>Start year</th>
+                            <th>End year</th>
+                            <th>School name</th>
+                            <th>School website</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <td >2024</td>
+                                <td>present</td> 
+                                <td>Technická univerzita v Liberci - fakulta mechatroniky, informatiky a mezioborových studií (Informační technologie - Aplikovaná informatika)</td>
+                                <td><a href="https://www.fm.tul.cz/" target="_blank">fm.tul.cz</a></td>
+                            </tr>
+                            <tr>
+                                <td >2019</td>
+                                <td >2024</td> 
+                                <td>SŠ a VOŠ aplikované kybernetiky s.r.o. (Informační technologie - Programování)</td>
+                                <td><a href="https://kyberna.cz/" target="_blank">kyberna.cz</a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">2010 - 2019 (required)</td>
+                                <td>ZŠ Liberec, ulice 5. května</td>
+                                <td><a href="https://www.zs5kveten.cz/" target="_blank">zs5kveten.cz</a></td>
+                        </tbody>
+                </table>
+
+                <h3>Work history</h3>
+                
+                <table>
+                    <caption>Overview of my working history</caption>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Position</th>
+                            <th>Company / Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026</td>
+                            <td>Cloud Architect Support</td>
+                            <td>Knorr-Bremse</td>
+                        </tr>
+                        <tr>
+                            <td>2025</td>
+                            <td>Cloud Architect Support</td>
+                            <td>Knorr-Bremse</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="3">2024</td>
+                            <td>Cloud Architect Support</td>
+                            <td>Knorr-Bremse</td>
+                        </tr>
+                        <tr>
+                            <td>IT Helpdesk</td>
+                            <td>Kyberna</td>
+                        </tr>
+                        <tr>
+                            <td>React front-end Developer</td>
+                            <td>UHK</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="3">2023</td>
+                            <td>Technical Support</td>
+                            <td>ISS Hradec Králové</td>
+                        </tr>
+                        <tr>
+                            <td>React front-end Developer</td>
+                            <td>UHK</td>
+                        </tr>
+                        <tr>
+                            <td>Lecturer</td>
+                            <td>IKAP</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3">2022</td>
+                            <td>IT Helpdesk</td>
+                            <td>Kyberna</td>
+                        </tr>
+                        <tr>
+                            <td>Technical Support</td>
+                            <td>ISS Hradec Králové</td>
+                        </tr>
+                        <tr>
+                            <td>Lecturer</td>
+                            <td>IKAP</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>IT Helpdesk</td>
+                            <td>Kyberna</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="projects" class="animatedSections">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="project-stack-container">
+                    <div class="project-card card-1">
+                        <img src="fotky/projekty/db_scheme_edu.png" alt="Project 1">
+                        <div class="project-info">
+                            <a href="https://github.com/tvuj-github/projekt1" target="_blank">View on Gitlab</a>
+                        </div>
+                    </div>
+                    <div class="project-card card-2">
+                        <img src="fotky/projekty/proj_lesni_skolka_veliny.png" alt="Project 2">
+                        <div class="project-info">
+                            <a href="https://gitlab.kyberna.cz/mikolasek.ondrej/lesni-skolky-veliny" target="_blank">View on Gitlab</a>
+                        </div>
+                    </div>
+                    <div class="project-card card-3">
+                        <img src="fotky/projekty/prihlaseni_najdi_stredni.png" alt="Project 3">
+                        <div class="project-info">
+                            <a href="https://github.com/tvuj-github" target="_blank">View on Gitlab</a>
+                        </div>
+                    </div>
+                    <div class="project-card card-4">
+                        <img src="fotky/projekty/proj_robota_near_me.png" alt="Project 3">
+                        <div class="project-info">
+                            <a href="https://github.com/steveTVcze/RobotaNearMee?tab=readme-ov-file" target="_blank">View on Gitlab</a>
+                        </div>
+                    </div>
+                    <div class="project-card card-5">
+                        <img src="fotky/projekty/db_scheme_improve_your_life.png" alt="Project 3">
+                        <div class="project-info">
+                            <a href="https://github.com/tvuj-github" target="_blank">View on Gitlab</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="animatedSections">
+            <div class="container">
+                <h2>Contact form </h2>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>
+                            Want me for a project? Send me a message...
+                        </legend>
+                        <p><label for="f-name" >  Name: </label> <br> <input title="Please enter your name" type="text"  id="f-name" name="name"  placeholder="Jan Novák..." required autocomplete="name"></p>
+                        <p><label for="f-email"> Mail: </label> <br> <input  type="email" id="f-email" name="email" placeholder="jannovak@sezna..." required autocomplete="email"></p>
+                        <p><label for="f-urgency"> Urgency: </label> <br> <input type="range" min="1" max="10" step="1" value="5" id="f-urgency" name="urgency"></p>
+                        <p><label for="f-phone"> Phone: </label> <br> <input type="text" id="f-phone" pattern="[+0-9\s]{9,15}" name="phone" placeholder="+420 123456789" required  inputmode="tel"></p>
+                        <p><label for="f-date"> Date: </label> <br> <input type="date" id="f-date" name="date" min="2026-02-16"></p>
+                        <p><label  for="f-message"> Message: </label><br> <input  type="text" minlength="10" maxlength="500" id="f-message"  name="message" placeholder="Yo, wazzup... (min 10 characters)" required></p>
+                        <button type="submit" >
+                            Send Message 
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p id="footerText">
+                2026 Štěpán Zakouřil - all rights reserved
+            </p>
+            <nav class="footer-nav">
+                <ul id="footerLstOfHrefs">
+                    <li><a href="https://validator.w3.org/nu/?doc=TVOJE_URL" target="_blank">HTML5 validatior</a></li>
+                    <li> <a href="https://jigsaw.w3.org/css-validator/validator?uri=TVOJE_URL" target="_blank">CSS3 validator</a> </li>
+                    <li><a href="#about">Back to top</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </footer>
+    <div id="cigo-container"></div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
