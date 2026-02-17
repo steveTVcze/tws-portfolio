@@ -325,6 +325,12 @@ h2 {
     object-fit: cover;
 }
 
+.project-card a {
+    color: white;
+    font-size: larger;
+    font-weight: 700;
+}
+
 .card-1 { transform: rotate(-8deg); z-index: 1; }
 .card-2 { transform: rotate(5deg); z-index: 2; }
 .card-3 { transform: rotate(-3deg); z-index: 3; }
@@ -609,10 +615,21 @@ body.light-theme {
 }
 
 @media (max-width: 600px) {
+    #skills .container{
+        width: 100%;
+    }
+    #skills img{
+        width: 100%;
+    }
+    #skills .tech-icons{
+        display: block;
+        justify-content: center;
+        width: 15%;
+    }
     table {
         display: block;
         overflow-x: auto;
-        white-space: nowrap;
+        white-space: wrap;
     }
 
     #contact fieldset {
