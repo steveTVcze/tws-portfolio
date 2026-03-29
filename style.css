@@ -776,7 +776,7 @@ body.light-theme {
     }
 
     footer .container {
-        flex-direction: column; /* Text a navigace pod sebou */
+        flex-direction: column;
         text-align: center;
         gap: 1.5rem;
     }

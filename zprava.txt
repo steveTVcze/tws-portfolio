@@ -1,0 +1,75 @@
+Adresa github repozitáře: https://github.com/steveTVcze/tws-portfolio
+Adresa na školní server: https://stuwrk.nti.tul.cz/~stepan.zakouril/sp/
+Adresa na hostování na github pages: https://stevetvcze.github.io/tws-portfolio/#contact
+Web dosahuje skóre 100 v Accessibility a 99 v Performance dle auditu Google Lighthouse (viz přiložené screenshoty).
+
+-projekt jsem z většiny udělal již první týden semestru, ale kvůli nedávné operaci jsem se k jeho dokončení dostal až tento týden
+
+
+ÚROVEŇ II – Rozšířený povinný základ
+    Dark/Light mode
+        Na webu je plně funkční přepínání mezi světlým a tmavým režimem pomocí CSS proměnných (--bg-color, --text-color atd.).
+
+        Volba se ukládá do localStorage. Při prvním načtení se web adaptuje na systémové nastavení uživatele (prefers-color-scheme ověřované přes JS window.matchMedia).
+
+        Kde to je: Tlačítko #theme-btn v navigaci. Logika v script.js (na začátku souboru). Styly na konci style.css (třídy .dark-theme, .light-theme).
+
+    Pokročilé CSS
+
+        Nadpisy (h1, h2) a texty v tabulce využívají fluidní typografii přes clamp(), takže se plynule přizpůsobují velikosti obrazovky bez nutnosti mnoha breakpointů.
+
+        Zvládnutá práce s transform, z-index a perspective v sekci #projects, kde jsou karty projektů nastylované jako skládačka (stack), která se po narolování plynule rozbalí pomocí cubic-bezier křivky.
+
+        Zabezpečená vizuální přístupnost při ovládání klávesnicí (ošetřeno přes :focus-visible s upraveným outline).
+
+ÚROVEŇ III – Bonusové úkoly
+
+    Pokročilé formuláře (#contact)
+
+        Formulář využívá moderní typy vstupů: color pro výběr barvy projektu, date (s nastaveným omezením min od 16. 2. 2026) a range jako posuvník pro urgenci.
+
+        Telefon hlídá formát pomocí regulárního výrazu přes pattern="[+0-9\s]{9,15}".
+
+        Pro mobilní zařízení je optimalizována klávesnice přes inputmode="tel" a formulář podporuje autocomplete (jméno, email, telefon).
+
+        Ochrana proti spamu/prázdným zprávám v textarea pomocí minlength a maxlength.
+
+        CSS vizuální validace: Přidána zpětná vazba pro uživatele (zelený/červený rámeček) pomocí pseudotříd :focus:valid a :focus:invalid.
+
+    Tiskový stylesheet
+
+        Pod @media print v style.css je web kompletně přestavěn pro tisk.
+
+        Skryje se navigace, 3D model, formulář i zbytečné dekorace. Zruší se stíny a pozadí pro úsporu inkoustu.
+
+        Ke každému textovému odkazu se automaticky přidá jeho URL adresa, aby byl odkaz na papíře čitelný (pomocí content: " (" attr(href) ")").
+
+    CSS animace a přístupnost (WCAG)
+
+        Animace prvků se nespouští hned, ale chytře přes IntersectionObserver (v JS). Hlídají se dva samostatné observery – jeden pro "fade-in" sekcí a druhý pro rozbalení karet s projekty.
+
+        Přístupnost navigace: Hamburger menu dynamicky mění atribut aria-expanded pro čtečky obrazovky.
+
+        Striktní přístupnost pohybu: Pokud má uživatel v systému zapnuté prefers-reduced-motion: reduce, veškeré CSS animace se okamžitě zastaví a 3D model cigarety se úplně skryje, aby web nevyvolával nevolnost.
+
+    SVG a CSS animace
+
+        Logo webu a scroll indikátor jsou vložené přímo do HTML jako inline SVG. K logu jsou přidány atributy role="img" a aria-labelledby pro přístupnost.
+
+        U scroll indikátoru je vytvořena animace jednotlivých SVG cest (.arrow-1, .arrow-2, .arrow-3) pomocí CSS @keyframes.
+
+        Barva obou SVG se automaticky adaptuje na Dark/Light režim přes fill: currentColor.
+
+    Konfigurace serveru (.htaccess)
+
+        Nastavená vlastní grafická chybová stránka 404 (ErrorDocument 404).
+
+        Zajištěno 301 přesměrování z HTTP na zabezpečené HTTPS.
+
+        Z bezpečnostních důvodů je zakázán výpis obsahu složek (Options -Indexes), nastaveno výchozí kódování na UTF-8 a samotný soubor .htaccess je chráněn proti přečtení zvenčí (<Files> Require all denied).
+
+    JavaScript (Three.js)
+
+        V pravém dolním rohu je vložený 3D model cigarety renderovaný pomocí WebGL knihovny Three.js.
+
+        Kód je na konci script.js a je napsaný tak, že rotace modelu dynamicky reaguje nejen na ubíhající čas (Math.sin), ale také přímo na pozici scrollu uživatele (window.scrollY).
