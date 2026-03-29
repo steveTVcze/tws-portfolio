@@ -1,14 +1,25 @@
 RewriteEngine On
 
-# Vynucení HTTPS
+#vynucení HTTPS - nasel jsem na stack overflow
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Vlastní chybová stránka
+#vlastní chybová stránka
 ErrorDocument 404 /sp/404.html
 
-# Zzákaz výpisu obsahu složek
+#zákaz výpisu obsahu složek
 Options -Indexes
 
-# Výchozí kódování
+#vychozí kódování
 AddDefaultCharset UTF-8
+
+#omezeni pristupu
+<RequireAll>
+    Require all granted
+    # Require ip x.x.x.x  - nechavam all granted kvuli moznosti pristupu, ale jinak bych to omezil timto zpusobem
+</RequireAll>
+
+#ochrana souboru
+<Files ".htaccess">
+    Require all denied
+</Files>
