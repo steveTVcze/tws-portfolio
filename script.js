@@ -9,28 +9,16 @@ if (btn) {
     btn.addEventListener("click", () => {
         
         if (document.body.classList.contains("dark-theme")) {
-
-            document.body.classList.remove("dark-theme");
-            document.body.classList.add("light-theme");
-
-
+            document.body.classList.replace("dark-theme", "light-theme");
             localStorage.setItem("theme", "light");
-        } 
-        else 
-        {
-            document.body.classList.remove("light-theme");
-            document.body.classList.add("dark-theme");
-            
+        } else {
+            document.body.classList.replace("light-theme", "dark-theme");
             localStorage.setItem("theme", "dark");
         }
     });
     //radsi ukladam predchozi stav, kdyby treba v noci nekdo omylem tu stranku zavrel a s nastavenim system light modu by mu to tu stranku z dark modu zase hodilo na light
-    const savedTheme = localStorage.getItem("theme");
-    
-    if (savedTheme) 
-        {
-        document.body.classList.add(`${savedTheme}-theme`);
-    }
+    const savedTheme = localStorage.getItem("theme") || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.body.classList.add(`${savedTheme}-theme`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,22 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.observe(stackContainer);
 
-    const themeBtn = document.getElementById('theme-btn');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme === 'light') {
-        document.body.classList.add('light-mode');
-    }
-
-    themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        let theme = 'dark';
-        if (document.body.classList.contains('light-mode')) {
-            theme = 'light';
-        }
-        localStorage.setItem('theme', theme);
-    });
-
 
     const vsechnyFade = document.querySelectorAll('.animatedSections');
     const obsrv = new IntersectionObserver((entries) => {
@@ -83,6 +55,30 @@ document.addEventListener('DOMContentLoaded', () => {
     vsechnyFade.forEach(el => obsrv.observe(el));
 
 });
+
+//navbar hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('lstOfHrefs');
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('active');
+        
+        // Bonus pro přístupnost (WCAG)
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Zavřít menu po kliknutí na odkaz (aby nezaclánělo po odscrollování)
+    document.querySelectorAll('#lstOfHrefs a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
 
 
 // rotujici cigareta - snad nevadi ze jsem pouzil three js, ale prislo mi to vhodne k bodu 9)

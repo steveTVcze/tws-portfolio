@@ -7,7 +7,7 @@ html {
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 button:focus-visible, 
@@ -18,13 +18,13 @@ textarea:focus-visible {
 }
 
 /* navbar */
-header{
+header {
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,7 +33,7 @@ nav{
     background-color: var(--nav-bg);
 }
 
-#lstOfHrefs{
+#lstOfHrefs {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -45,25 +45,67 @@ nav{
 
 #lstOfHrefs a {
     text-decoration: none;
-    color: var(--accent-color);;
+    color: var(--accent-color);
     font-weight: 700;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: x-large;
     transition: color 0.3s ease;
 }
 
-#lstOfHrefs a:hover {
-    color: var(--link-hover);
+#home-logo { color: var(--accent-color); }
+
+/* --- HAMBURGER MENU LOGIKA --- */
+
+#hamburger {
+    display: none; /* Schovat na desktopu */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
 }
 
-#lstOfHrefs a:focus-visible {
-    outline: 2px solid #007bff;
-    outline-offset: 4px;
-    border-radius: 4px;
+#hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    transition: all 0.3s linear;
 }
 
-#home-logo{
-    color:var(--accent-color);;
+@media (max-width: 650px) {
+    #hamburger { display: flex; } /* Ukázat na mobilu */
+
+    #lstOfHrefs {
+        display: none; /* Schovat klasické menu */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Hned pod navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--nav-bg);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Třída, kterou přidáme pomocí JS pro zobrazení menu */
+    #lstOfHrefs.active {
+        display: flex;
+    }
+
+    #lstOfHrefs a {
+        font-size: 1.5rem; /* Na mobilu trochu rozumnější velikost */
+    }
+
+    /* Animace hamburgeru na X */
+    #hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    #hamburger.open span:nth-child(2) { opacity: 0; }
+    #hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 }
 
 /* main cast */
@@ -196,9 +238,13 @@ h2 {
     font-size:x-large;
 }
 
-#footballImg{
-    height: 600px;
-    width: auto;
+#footballImg {
+    height: auto;
+    max-height: 600px;
+    width: 100%;
+    max-width: 450px; 
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 #skills .container{
@@ -291,6 +337,7 @@ h2 {
     border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
+
 #history th {
     background-color: var(--accent-color);
     color: var(--table-th-text);
@@ -298,6 +345,7 @@ h2 {
     font-size: 0.85rem;
     letter-spacing: 1px;
 }
+
 
 #history tbody tr:nth-child(even) {
     background-color: transparent;
@@ -744,3 +792,64 @@ body.light-theme {
     }
 }
 
+@media print {
+    .animatedSections, 
+    [class*="animated"] {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+
+    *, ::before, ::after {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    header, 
+    footer, 
+    #hamburger, 
+    #theme-btn, 
+    .scroll-indicator, 
+    #cigo-container, 
+    #contact,
+    .project-info {
+        display: none !important;
+    }
+    
+    section {
+        min-height: auto !important;
+        padding: 20px 0 !important;
+        page-break-inside: avoid;
+    }
+
+    .project-card {
+        position: relative !important;
+        transform: none !important; 
+        margin-bottom: 20px !important;
+        break-inside: avoid;
+        border: 1px solid #ccc !important;
+        display: block !important;
+    }
+
+    form {
+        max-width: 100% !important;
+    }
+    
+    fieldset {
+        padding: 10px !important;
+        margin: 0 !important;
+    }
+
+    #contact p {
+        margin: 5px 0 !important;
+    }
+
+    /* Schovávám ten nápis "View on Gitlab", protože na papíře by se na něj stejně nedalo kliknout*/
+    .project-info {
+        display: none !important;
+    }
+}

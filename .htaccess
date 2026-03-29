@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Vynucení HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Vlastní chybová stránka
+ErrorDocument 404 /sp/404.html
+
+# Zzákaz výpisu obsahu složek
+Options -Indexes
+
+# Výchozí kódování
+AddDefaultCharset UTF-8
