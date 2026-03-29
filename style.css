@@ -5,6 +5,11 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 button:focus-visible, 
 input:focus-visible, 
 textarea:focus-visible {
@@ -232,6 +237,15 @@ h2 {
 
 /* main cast - history */
 
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1); 
+}
+
 #history table {
     width: 100%;
     border-collapse: collapse;
@@ -242,6 +256,26 @@ h2 {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+#history table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#history td, #history th {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 2.5vw, 1rem);
+}
+
+#history th:nth-child(1), #history th:nth-child(2) { width: 15%; } /* Roky */
+#history th:nth-child(3) { width: 50%; } /* Název školy */
+#history th:nth-child(4) { width: 20%; } /* Web */
+
 
 #history caption {
     font-weight: 700;
@@ -259,7 +293,7 @@ h2 {
 
 #history th {
     background-color: var(--accent-color);
-    color: #000000;
+    color: var(--table-th-text);
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
@@ -387,9 +421,11 @@ h2 {
 
 
 
+
+
 #contact input, 
 #contact textarea {
-    width: 95%;
+    width: 100%;
     box-sizing: border-box;
     padding: 15px;
     border: 2px solid var(--border-color, #333);
@@ -428,36 +464,39 @@ h2 {
 }
 
 /* footer */
-
-
 footer {
     padding: 3rem 0;
     margin-top: 4rem;
     border-top: 1px solid var(--accent-color);
-    text-align: center;
 }
 
-
-footer .container{
+footer .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
 }
-
 
 #footerText {
     margin: 0;
-    white-space: nowrap;
+    white-space: normal; 
+    line-height: 1.4;
 }
+
 .footer-nav ul {
     list-style: none;
     display: flex;
-    justify-content:space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     padding: 0;
+    margin: 0;
 }
 
 .footer-nav a {
@@ -465,7 +504,7 @@ footer .container{
     color: var(--text-color);
     font-size: 0.9rem;
     opacity: 0.7;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
 }
 
 .footer-nav a:hover {
@@ -484,6 +523,8 @@ footer .container{
 
     cursor: pointer;
 }
+
+
 
 
 /* light a dark modd */
@@ -512,6 +553,7 @@ footer .container{
         --accent-color: #ff4d4d;
         --nav-bg: rgba(18, 18, 18, 0.9);
     }
+    
 }
 
 body.dark-theme {
@@ -519,6 +561,7 @@ body.dark-theme {
     --text-color: #f0f0f0 !important;
     --accent-color: #ff4d4d !important;
     --nav-bg: rgba(18, 18, 18, 0.9) !important;
+    --table-th-text: #121212;
 }
 
 body.light-theme {
@@ -526,6 +569,7 @@ body.light-theme {
     --text-color: #1a1a1a !important;
     --accent-color: #d31818 !important;
     --nav-bg: rgba(255, 255, 255, 0.9) !important;
+    --table-th-text: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -653,7 +697,7 @@ body.light-theme {
         
     }
     #history .container table{
-        width: 80%;
+        width: 100%;
     }
     table {
         display: block;
@@ -682,6 +726,18 @@ body.light-theme {
         bottom: 10px;
         right: 10px;
     }
+
+    footer .container {
+        flex-direction: column; /* Text a navigace pod sebou */
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-nav ul {
+        justify-content: center;
+        gap: 1rem;
+    }
+
     canvas {
         width: 100% !important;
         height: 100% !important;
